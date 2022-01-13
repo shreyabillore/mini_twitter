@@ -10,6 +10,10 @@ const MessageSchema = new mongoose.Schema({
   user: {
     type: Object,
     required: true,
+    username: {
+      type: String,
+      required: true,
+    },
     handle: {
       type: String,
     },
