@@ -7,10 +7,15 @@ const UserSchema = new mongoose.Schema({
     unique: true,
     maxlength: [144],
   },
-  id: {
-    type: Object,
+  profile_pic: {
+    type: String,
+    required: true,
+    default: "",
+  },
+  handle: {
+    type: String,
     required: true,
   },
 });
 
-export default mongoose.model("User", UserSchema);
+module.exports = mongoose.model("User", UserSchema);
