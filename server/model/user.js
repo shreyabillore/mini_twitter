@@ -5,7 +5,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    maxlength: [144],
   },
   profile_pic: {
     type: String,
