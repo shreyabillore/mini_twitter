@@ -3,26 +3,22 @@
  */
 
 // 1. import mongoose
-const mongoose = require('mongoose');
-require('dotenv').config();
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 // 2. connect to DB
 const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_DB_URI);
 
-    try {
+    console.log("MONGO DB mini-twitter connected....");
+  } catch (err) {
+    console.error(err.message);
 
-        await mongoose.connect(process.env.MONGO_DB_URI)
-
-        console.log('MONGO DB mini-twitter connected....')
-
-    } catch (err) {
-
-        console.error(err.message)
-
-        // If failure then exit server
-        process.exit(1)
-    }
-}
+    // If failure then exit server
+    process.exit(1);
+  }
+};
 
 // COMMONJS module system -> exports an object throygh the module.exports
 module.exports = connectDB;
