@@ -1,36 +1,42 @@
 const mongoose = require("mongoose");
 
-const MessageSchema = new mongoose.Schema({
-  text: {
-    type: String,
-    required: true,
-    unique: true,
-    maxlength: [144],
-  },
-  user: {
-    type: Object,
-    required: true,
-    username: {
+const MessageSchema = mongoose.Schema(
+  {
+    text: {
       type: String,
       required: true,
+      maxlength: 144,
+      unique: false,
     },
-    handle: {
+    user: {
+      type: Object,
+      required: true,
+      username: {
+        type: String,
+        required: true,
+      },
+      handle: {
+        type: String,
+        required: true,
+      },
+    },
+    date: {
+      required: true,
+      type: Date,
+      default: Date.now,
+    },
+    img_url: {
       type: String,
+      required: false,
+    },
+    link_url: {
+      type: String,
+      required: false,
     },
   },
-  date: {
-    required: true,
-    type: Date,
-    default: Date.now,
-  },
-  img_url: {
-    type: String,
-    required: false,
-  },
-  link_url: {
-    type: String,
-    required: false,
-  },
-});
+  { versionKey: "_twitter_message" }
+);
 
-module.exports = mongoose.model("Message", MessageSchema);
+const Message = mongoose.model("Message", MessageSchema);
+
+module.exports = Message;
