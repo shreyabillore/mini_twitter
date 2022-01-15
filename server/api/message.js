@@ -45,6 +45,15 @@ router.post("/messages", async (req, res) => {
   }
 });
 
+// get messages by username is is unique for every user
+const messageById = async (req, res) => {
+  console.log("quer params id is ", req.params.id);
+  const data = await Message.find({ "user.username": req.params.id });
+
+  console.log("message by Id is :", data);
+  res.send(data);
+};
+
 // Delete a single message
 router.delete("/messages/:id", async (req, res) => {
   try {
@@ -61,6 +70,6 @@ router.delete("/messages/:id", async (req, res) => {
 });
 
 router.get("/messages", allMessages);
+router.get("/find/message/:id", messageById);
 
 module.exports = router;
-
