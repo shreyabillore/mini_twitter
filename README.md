@@ -9,8 +9,6 @@
 - [POST one message](https://wbs-twitter-clone.herokuapp.com/messages)
 - [DELETE one message](https://wbs-twitter-clone.herokuapp.com/messages/:id)
 
-## /users
-
 ### GET all users
 
 | URL                                           | Method |
@@ -92,31 +90,21 @@ Returns all messages for a user whose `user_id` matches the `${id}` provided in 
 
 Adds a new message to the database. Requires `name`, `profile_pic`. `handle`. Handle can be left empty, and will upload a default image.
 **Example:**
-`POST`-ing this data:
-
-```
-
-{
+Posting this data:
+```{
 "name": "Here's an example message being submitted",
 "profile_pic": "",
 "handle": @sleepingbeauty
 }
 
-```
-
- will return you an HTTP status code of `200` and the following data:
-
-```
-
-data : [
+ will return you the following data:
+[
 _id: new ObjectId("61e1e679f9d6a781f2ba03ef"),
 name: 'Tanja',
 profile_pic: 'https://tvline.com/wp-content/uploads/2016/03/freeform-sleeping-beauty-series.jpg',
 handle: '@sleepingbeauty'
 }
 ]
-
-```
 ### DELETE one message by id
 
 | URL  | Method  |
@@ -131,19 +119,11 @@ Deletes message whose `message_id` matches the `${id}` provided in the URL. Retu
 | https://wbs-twitter-clone.herokuapp.com/me  | `GET`  |
 
 Returns a random user from the database.
-
-data :
-
-```
-
-Users data is [
+data:
+[{
 _id: new ObjectId("61e1e679f9d6a781f2ba03ef"),
 name: 'Tanja',
 profile_pic: 'https://tvline.com/wp-content/uploads/2016/03/freeform-sleeping-beauty-series.jpg',
 handle: '@sleepingbeauty'
-}
-]
+}]
 
-```
-
-```
