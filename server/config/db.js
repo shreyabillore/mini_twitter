@@ -9,7 +9,7 @@ require("dotenv").config();
 // 2. connect to DB
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_DB_URI);
+    await mongoose.connect(process.env.MONGO_DB_URI || 'mongodb+srv://shreya:2dPBJwvY76JkEHV3@mfimia.seces.mongodb.net/twitter-clone?retryWrites=true&w=majority');
 
     console.log("MONGO DB mini-twitter connected....");
   } catch (err) {
@@ -19,6 +19,7 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+
 
 // COMMONJS module system -> exports an object throygh the module.exports
 module.exports = connectDB;
