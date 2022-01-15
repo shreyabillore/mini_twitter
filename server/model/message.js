@@ -32,6 +32,8 @@ const MessageSchema = mongoose.Schema(
     link_url: {
       type: String,
       required: false,
+      default:
+        "https://th.bing.com/th/id/OIP.sJhiNQZoqAiaGJusJ_M37wHaHa?pid=ImgDet&rs=1",
     },
   },
   { versionKey: "_twitter_message" }
