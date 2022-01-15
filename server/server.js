@@ -8,7 +8,7 @@ connectDB();
 /**
  * DEFINE ROUTES
  */
-app.use("/twitter", require("./api/message"));
+app.use("/", require("./api/message"));
 app.use("/", require("./api/user"));
 
 // 4. listen to  port 5000
