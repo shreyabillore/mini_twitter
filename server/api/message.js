@@ -48,7 +48,7 @@ router.post("/messages", async (req, res) => {
 // get messages by username is is unique for every user
 const messageById = async (req, res) => {
   console.log("quer params id is ", req.params.id);
-  const data = await Message.find({ "user.username": req.params.id });
+  const data = await Message.find({ "user.handle": req.params.id });
 
   console.log("message by Id is :", data);
   res.send(data);
