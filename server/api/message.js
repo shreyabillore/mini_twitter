@@ -11,15 +11,11 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
 const allMessages = async (_, res) => {
-  console.log("Message data get block:");
-
   try {
     const data = await Message.find({});
-
-    console.log("Message data is", data);
     res.send(data);
   } catch (error) {
-    console.log("Error is :", error.message);
+    res.status(500).send("Server Error");
   }
 };
 
@@ -41,16 +37,13 @@ router.post("/messages", async (req, res) => {
     const message = await newMessage.save();
     res.json(message);
   } catch (err) {
-    console.log(err);
+    res.status(500).send("Server Error");
   }
 });
 
 // get messages by username is is unique for every user
 const messageById = async (req, res) => {
-  console.log("quer params id is ", req.params.id);
   const data = await Message.find({ "user.handle": req.params.id });
-
-  console.log("message by Id is :", data);
   res.send(data);
 };
 
@@ -64,7 +57,6 @@ router.delete("/messages/:id", async (req, res) => {
     await Message.findByIdAndRemove(req.params.id);
     res.json({ msg: "Message removed" });
   } catch (err) {
-    console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
