@@ -5,11 +5,9 @@ require("dotenv").config();
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_DB_URI);
-
-    console.log("MONGO DB mini-twitter connected....");
+    console.log("DB connected");
   } catch (err) {
     console.error(err.message);
-
     // If failure then exit server
     process.exit(1);
   }
