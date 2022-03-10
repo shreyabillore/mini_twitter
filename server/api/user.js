@@ -11,7 +11,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 const User = require("../model/user");
 
-const allUsers = async (req, res) => {
+const allUsers = async (_, res) => {
   console.log("Message data get block:");
 
   try {
@@ -25,7 +25,7 @@ const allUsers = async (req, res) => {
 
 // to get random user
 
-const randomUser = async (req, res) => {
+const randomUser = async (_, res) => {
   console.log("rnadom user data get block:");
 
   try {

@@ -10,7 +10,7 @@ const bodyParser = require("body-parser");
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
-const allMessages = async (req, res) => {
+const allMessages = async (_, res) => {
   console.log("Message data get block:");
 
   try {
