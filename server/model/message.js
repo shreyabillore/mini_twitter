@@ -4,7 +4,7 @@ const MessageSchema = mongoose.Schema({
   text: {
     type: String,
     required: true,
-    maxlength: 144,
+    maxLength: 144,
     unique: false,
   },
   user: {
